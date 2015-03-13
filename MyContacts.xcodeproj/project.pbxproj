@@ -8,45 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3CCF45B61AB279430033DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF45B51AB279430033DD45 /* AppDelegate.swift */; };
-		3CCF45B81AB279430033DD45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF45B71AB279430033DD45 /* ViewController.swift */; };
-		3CCF45BB1AB279430033DD45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF45B91AB279430033DD45 /* Main.storyboard */; };
 		3CCF45BD1AB279430033DD45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF45BC1AB279430033DD45 /* Images.xcassets */; };
 		3CCF45C01AB279430033DD45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF45BE1AB279430033DD45 /* LaunchScreen.xib */; };
-		3CCF45CC1AB279430033DD45 /* MyContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF45CB1AB279430033DD45 /* MyContactsTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3CCF45C61AB279430033DD45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3CCF45A81AB279430033DD45 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3CCF45AF1AB279430033DD45;
-			remoteInfo = MyContacts;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3CCF45B01AB279430033DD45 /* MyContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CCF45B41AB279430033DD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CCF45B51AB279430033DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CCF45B71AB279430033DD45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3CCF45BA1AB279430033DD45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CCF45BC1AB279430033DD45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3CCF45BF1AB279430033DD45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3CCF45C51AB279430033DD45 /* MyContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CCF45CA1AB279430033DD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CCF45CB1AB279430033DD45 /* MyContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContactsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3CCF45AD1AB279430033DD45 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CCF45C21AB279430033DD45 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +35,6 @@
 			isa = PBXGroup;
 			children = (
 				3CCF45B21AB279430033DD45 /* MyContacts */,
-				3CCF45C81AB279430033DD45 /* MyContactsTests */,
 				3CCF45B11AB279430033DD45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				3CCF45B01AB279430033DD45 /* MyContacts.app */,
-				3CCF45C51AB279430033DD45 /* MyContactsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,8 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				3CCF45B51AB279430033DD45 /* AppDelegate.swift */,
-				3CCF45B71AB279430033DD45 /* ViewController.swift */,
-				3CCF45B91AB279430033DD45 /* Main.storyboard */,
 				3CCF45BC1AB279430033DD45 /* Images.xcassets */,
 				3CCF45BE1AB279430033DD45 /* LaunchScreen.xib */,
 				3CCF45B31AB279430033DD45 /* Supporting Files */,
@@ -91,23 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				3CCF45B41AB279430033DD45 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3CCF45C81AB279430033DD45 /* MyContactsTests */ = {
-			isa = PBXGroup;
-			children = (
-				3CCF45CB1AB279430033DD45 /* MyContactsTests.swift */,
-				3CCF45C91AB279430033DD45 /* Supporting Files */,
-			);
-			path = MyContactsTests;
-			sourceTree = "<group>";
-		};
-		3CCF45C91AB279430033DD45 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3CCF45CA1AB279430033DD45 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -132,24 +86,6 @@
 			productReference = 3CCF45B01AB279430033DD45 /* MyContacts.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3CCF45C41AB279430033DD45 /* MyContactsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3CCF45D21AB279430033DD45 /* Build configuration list for PBXNativeTarget "MyContactsTests" */;
-			buildPhases = (
-				3CCF45C11AB279430033DD45 /* Sources */,
-				3CCF45C21AB279430033DD45 /* Frameworks */,
-				3CCF45C31AB279430033DD45 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3CCF45C71AB279430033DD45 /* PBXTargetDependency */,
-			);
-			name = MyContactsTests;
-			productName = MyContactsTests;
-			productReference = 3CCF45C51AB279430033DD45 /* MyContactsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +97,6 @@
 				TargetAttributes = {
 					3CCF45AF1AB279430033DD45 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					3CCF45C41AB279430033DD45 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 3CCF45AF1AB279430033DD45;
 					};
 				};
 			};
@@ -182,7 +114,6 @@
 			projectRoot = "";
 			targets = (
 				3CCF45AF1AB279430033DD45 /* MyContacts */,
-				3CCF45C41AB279430033DD45 /* MyContactsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -192,16 +123,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CCF45BB1AB279430033DD45 /* Main.storyboard in Resources */,
 				3CCF45C01AB279430033DD45 /* LaunchScreen.xib in Resources */,
 				3CCF45BD1AB279430033DD45 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CCF45C31AB279430033DD45 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,38 +135,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CCF45B81AB279430033DD45 /* ViewController.swift in Sources */,
 				3CCF45B61AB279430033DD45 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CCF45C11AB279430033DD45 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3CCF45CC1AB279430033DD45 /* MyContactsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		3CCF45C71AB279430033DD45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3CCF45AF1AB279430033DD45 /* MyContacts */;
-			targetProxy = 3CCF45C61AB279430033DD45 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		3CCF45B91AB279430033DD45 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3CCF45BA1AB279430033DD45 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3CCF45BE1AB279430033DD45 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -354,40 +252,6 @@
 			};
 			name = Release;
 		};
-		3CCF45D31AB279430033DD45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyContactsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyContacts.app/MyContacts";
-			};
-			name = Debug;
-		};
-		3CCF45D41AB279430033DD45 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyContactsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyContacts.app/MyContacts";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,14 +271,7 @@
 				3CCF45D11AB279430033DD45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		3CCF45D21AB279430033DD45 /* Build configuration list for PBXNativeTarget "MyContactsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3CCF45D31AB279430033DD45 /* Debug */,
-				3CCF45D41AB279430033DD45 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

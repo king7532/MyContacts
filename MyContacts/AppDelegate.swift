@@ -7,38 +7,120 @@
 //
 
 import UIKit
+import AddressBook
+import AddressBookUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate {
 
     var window: UIWindow?
-
+    var addressBook: ABAddressBook!
+    var masterNav: UINavigationController?
+    
+    // MARK: - UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        self.masterNav = UINavigationController.init()
+        self.masterNav?.delegate = self
+        self.window?.rootViewController = self.masterNav?
+        self.window?.makeKeyAndVisible()
+        self.checkAddressBookAccess()
         return true
     }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+ 
+    func checkAddressBookAccess() {
+        switch(ABAddressBookGetAuthorizationStatus()) {
+        case .Authorized: self.accessGrantedForAddressBook()
+        case .NotDetermined: self.requestAddressBookAccess()
+        case .Denied: fallthrough
+        case .Restricted:
+            println("Address Book access either Denied or Restricted")
+        }
+    }
+    
+    func requestAddressBookAccess() {
+        ABAddressBookRequestAccessWithCompletion(addressBook) {
+            (granted: Bool, err: CFError!) in
+            if(granted) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.accessGrantedForAddressBook()
+                }
+            } else {
+                println("ABAddressBookRequestAccessWithCompletion handler got denied!")
+            }
+        }
+    }
+    
+    func accessGrantedForAddressBook() {
+        println("accessGrantedForAddressBook")
+        var err: Unmanaged<CFError>? = nil
+        let ab = ABAddressBookCreateWithOptions(nil, &err)
+        if err == nil {
+            self.addressBook = ab.takeRetainedValue()
+        } else {
+            assertionFailure("Could not create Address Book!")
+            // Tell the user to go to Settings.app -> Privacy -> Contacts -> Enable ABC
+        }
+        
+        showPeoplePickerController()
+    }
+    
+    func showPeoplePickerController() {
+        println("showPeoplePickerController")
+        
+        let picker = ABPeoplePickerNavigationController()
+        picker.peoplePickerDelegate = self
+        
+        // This is nil.... apparently this started in iOS 8
+        //println("ABPeoplePickerNavigationController.topViewController = \(picker.topViewController?)")
+        
+        // This crashes!
+        //self.masterNav?.setViewControllers([picker.topViewController], animated: true)
+        
+        // This the only way I was able to add ABPeoplePicker to my root UINavigationController
+        self.masterNav?.view.addSubview(picker.view)       // This must come before addChildViewController!!!
+        self.masterNav?.addChildViewController(picker)
+        picker.didMoveToParentViewController(self.masterNav?)
+    }
+    
+    // MARK: - ABPeoplePickerNavigationControllerDelegate
+    
+    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!) {
+        let personVC = ABPersonViewController()
+        personVC.personViewDelegate = self
+        personVC.allowsEditing = true
+        personVC.allowsActions = true
+        personVC.displayedPerson = person
+        
+        // This appears to do nothing :(
+        self.masterNav?.setNavigationBarHidden(false, animated: false)
+        
+        // This works but there is no navigation bar!? WHY?  Please help me :|
+        self.masterNav?.showViewController(personVC, sender: nil)
+        
+        // Does not work!
+        //self.masterNav?.view.addSubview(personVC.view)
+        //self.masterNav?.addChildViewController(personVC)
+    }
+    
+    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
+        println("peoplePickerNavigationControllerDidCancel")
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // MARK: - ABPersonViewControllerDelegate
+    
+    func personViewController(personViewController: ABPersonViewController!, shouldPerformDefaultActionForPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) -> Bool {
+        println("personViewController - shouldPerformDefaultActionForPerson - property - identifier")
+        return true
     }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    // MARK: - UINavigationControllerDelegate
+    
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        println("navigationController: \(navigationController) didShowViewController: \(viewController)")
+        println("navigationBar: \(navigationController.navigationBar)")
     }
 
 
